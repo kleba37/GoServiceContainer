@@ -1,13 +1,8 @@
-package DI
+package GoServiceContainer
 
 import (
-	//"database/sql"
-	//"fmt"
-	"github.com/kleba/Container/internal/Container"
-	//"os"
-
-	//"github.com/joho/godotenv"
-	_ "modernc.org/sqlite"
+	"github.com/kleba37/GoServiceContainer/internal/Container"
+	//_ "modernc.org/sqlite"
 )
 
 var autorun = map[string]Container.Service{
@@ -26,7 +21,7 @@ func (DI *DI) New() *Container.Container {
 	return container
 }
 
-// Для autoload
+// Пример autoload
 //func db() *sql.DB {
 //	err := godotenv.Load()
 //	if err != nil {
@@ -35,7 +30,6 @@ func (DI *DI) New() *Container.Container {
 //
 //	dsn := os.Getenv("DB_DSN")
 //
-//	fmt.Println("DSN: ", dsn)
 //	if len(dsn) == 0 {
 //		panic("DSN invalid")
 //	}
@@ -46,6 +40,6 @@ func (DI *DI) New() *Container.Container {
 //		fmt.Println("DB error connection")
 //		panic(err)
 //	}
-//
+//		fmt.Println("DB connect with DSN: ", dsn)
 //	return pool
 //}

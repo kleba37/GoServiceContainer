@@ -1,3 +1,7 @@
-package Cmd
+package main
 
 import _ "testing"
+
+func main() {
+
+}
