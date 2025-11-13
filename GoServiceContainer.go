@@ -1,7 +1,7 @@
 package GoServiceContainer
 
 import (
-	"GoServiceContainer/internal/Container"
+	"github.com/kleba37/GoServiceContainer/internal/Container"
 	//_ "modernc.org/sqlite"
 )
 

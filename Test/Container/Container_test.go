@@ -3,7 +3,7 @@ package Container
 import (
 	"testing"
 
-	"GoServiceContainer/GoServiceContainer"
+	"github.com/kleba37/GoServiceContainer"
 )
 
 type TestServiceInterface interface {
