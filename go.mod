@@ -1,4 +1,4 @@
-module github.com/kleba37/GoServiceContainer
+module GoServiceContainer
 
 go 1.25.3
 
