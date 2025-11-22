@@ -44,6 +44,30 @@ func TestRegisterAndGetConcreteService(t *testing.T) {
 	})
 }
 
+func TestRegisterArrayService(t *testing.T) {
+	t.Run("Testing register service", func(t *testing.T) {
+		myService := &TestService{Message: "Hello, World!"}
+
+		di := GoServiceContainer.New(myService)
+		s, err := di.Get(myService)
+
+		if err != nil {
+			t.Fatal("Get() вернул nil, сервис не найден в контейнере")
+		}
+
+		service, ok := (*s).(TestServiceInterface)
+
+		if !ok {
+			t.Fatalf("Не удалось преобразовать полученный сервис к типу TestServiceInterface. Получен тип: %T", s)
+		}
+
+		expectedMessage := "Hello, World!"
+		if message := service.SayHello(); message != expectedMessage {
+			t.Errorf("Ожидалось сообщение '%s', но получено '%s'", expectedMessage, message)
+		}
+	})
+}
+
 func TestGetIsNotAccessService(t *testing.T) {
 	t.Run("Testing GetIsNotAccessService", func(t *testing.T) {
 		di := GoServiceContainer.New()

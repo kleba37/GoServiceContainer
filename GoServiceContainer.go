@@ -11,11 +11,15 @@ var autorun = map[string]Container.Service{
 
 type DI struct{}
 
-func New() *Container.Container {
+func New(services ...Container.Service) *Container.Container {
 	container := Container.New()
 
-	for _, ser := range autorun {
-		container.Register(ser)
+	for _, serAutorun := range autorun {
+		container.Register(serAutorun)
+	}
+
+	for _, serInjection := range services {
+		container.Register(serInjection)
 	}
 
 	return container
