@@ -1,7 +1,7 @@
 package GoServiceContainer
 
 import (
-	"github.com/kleba37/GoServiceContainer/internal/Container"
+	"github.com/kleba37/GoServiceContainer/pkg/Container"
 	//_ "modernc.org/sqlite"
 )
 
@@ -11,8 +11,8 @@ var autorun = map[string]Container.Service{
 
 type DI struct{}
 
-func (DI *DI) New() *Container.Container {
-	container := Container.NewContainer()
+func New() *Container.Container {
+	container := Container.New()
 
 	for _, ser := range autorun {
 		container.Register(ser)
